@@ -33,8 +33,7 @@ public class SiteDAO {
 		public List<Site> createSite(Site site) {
 			List<Site> sites=new ArrayList<Site>();
 			em.getTransaction().begin();
-			em.persist(site);
-			
+			em.persist(site);			
 			em.getTransaction().commit();
 			em.close();
 			Query query=em.createNamedQuery("findAllSites");
@@ -74,10 +73,10 @@ public class SiteDAO {
 			em.getTransaction().begin();
 			site.setId(siteid);
 			em.merge(site);
-			Query query=em.createNamedQuery("findAllSites");
-			sites=query.getResultList();
 			em.getTransaction().commit();
 			em.close();
+			Query query=em.createNamedQuery("findAllSites");
+			sites=query.getResultList();
 			return sites;
 		}
 		
@@ -91,10 +90,10 @@ public class SiteDAO {
 			em.getTransaction().begin();
 			site = em.find(Site.class, id);
 			em.remove(site);
-			Query query=em.createNamedQuery("findAllSites");
-			sites=query.getResultList();
 			em.getTransaction().commit();
 			em.close();
+			Query query=em.createNamedQuery("findAllSites");
+			sites=query.getResultList();
 			return sites;
 		}
 
