@@ -32,13 +32,13 @@ public class SiteDAO {
 	    @Produces(MediaType.APPLICATION_JSON)	
 		public List<Site> createSite(Site site) {
 			List<Site> sites=new ArrayList<Site>();
-			
 			em.getTransaction().begin();
 			em.persist(site);
-			Query query=em.createNamedQuery("findAllSites");
-			sites=query.getResultList();
+			
 			em.getTransaction().commit();
 			em.close();
+			Query query=em.createNamedQuery("findAllSites");
+			sites=query.getResultList();
 			return sites;
 		}
 		

@@ -5,8 +5,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 </head>
 <body>
-<h1> Hello World</h1>
+<h1>Hello From JSP</h1>
+<script>
+    $(function(){
+    	alert("Create");
+    	var site={
+    			id:5,
+    			name:"site5",
+    			latitude:"12.34",
+    			longitude:"12.34"
+    	};
+    	$.ajax({
+    		url:"/JWS_and_JPA_Assignment/rest/api/site",
+    		type:"post",
+    		contentType:"application/json; charset=utf-8",
+    		dataType:" json",
+    		data:JSON.stringify(site),
+    		success: function(response) {
+    			console.log("yahoo");
+    		}
+    	});
+    });
+
+</script>
 </body>
 </html>
